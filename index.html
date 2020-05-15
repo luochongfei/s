@@ -4,8 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>前端常用插件工具收集</title>
+    <link rel="stylesheet" href="static/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
-    <h1>前端常用插件工具收集</h1>
+    <div id="app">
+        <h1 style="padding: 20px;">前端集</h1>
+
+        <div class="panel" v-for="menu of menuData">
+            <h2 class="title" v-html="menu.title"></h2>
+            <ul class="list" v-if="menu.list">
+                <li v-for="item in menu.list">
+                    <a :href="item.link" v-html="item.name"></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                menuData: [
+                    {
+                        title: '常用工具',
+                        list: [
+                            {
+                                name: 'JSON格式化',
+                                link: 'https://json.cn/'
+                            },
+                            {
+                                name: 'css小箭头生成器',
+                                link: 'http://apps.eky.hk/css-triangle-generator/zh-hant'
+                            },
+                            
+                        ]
+                    },
+                    {
+                        title: 'HTML 和 CSS',
+                        list: [
+                            {
+                                name: '常用页面布局',
+                                link: '/html-css/layout.html'
+                            },
+                            {
+                                name: '商品橱窗布局',
+                                link: '/html-css/goods-grid.html'
+                            },
+                            {
+                                name: '文字超出隐藏',
+                                link: '/css/overflow-hidden.html'
+                            },
+                            {
+                                name: '清除浮动',
+                                link: '/html/clearfix.html'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'JavaScript',
+                        list: [
+                            {
+                                name: '图片懒加载 lazyload.js',
+                                link: '/js/lazyload.html'
+                            },
+                            {
+                                name: '幻灯片 swiper.js',
+                                link: '/js/swiper.html'
+                            },
+                            {
+                                name: '复制到剪贴板 clipboard.js',
+                                link: '/js/clipboard.html'
+                            }
+                        ]
+                    }
+                ]
+            },
+        });
+    </script>
+
+    <style>
+
+    </style>
 </body>
 </html>
