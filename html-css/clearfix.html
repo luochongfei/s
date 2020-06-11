@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/prism.css">
+    <script src="/static/prism.js"></script>
+</head>
+<body class="page">
+    <h1>清除浮动</h1>
+
+
+    <hr>
+
+    <h2>最简单的清除</h2>
+    <h3>CSS</h3>
+    <pre>
+        <code class="language-css">
+            overflow: hidden; /*给浮动的父元素添加*/
+        </code>
+    </pre>
+
+    <div class="container1">
+        <div class="float-box1">外面灰色盒子不设置高度，正常情况下会被蓝色盒子撑开高度</div>
+    </div>
+    <style>
+        .container1 { width: 260px; background: #ccc; border: 1px dashed #f00; overflow: hidden; }
+        .float-box1 { float: left; width: 220px; height: 100px; background: #09a; color: #fff; }
+    </style>
+    <br>
+    <br>
+    <br>
+
+
+    <hr>
+
+    <h2>常用的伪元素清除</h2>
+    <h3>CSS</h3>
+    <pre>
+        <code class="language-css">
+            .container2:after{ /* 给浮动元素的父元素的伪元素添加样式*/
+                content: '';
+                display: block;
+                clear: both;
+            }
+        </code>
+    </pre>
+
+    <div class="container2">
+        <div class="float-box2">外面灰色盒子不设置高度，正常情况下会被蓝色盒子撑开高度</div>
+    </div>
+    <style>
+        .container2 { width: 260px; background: #ccc; border: 1px dashed #f00; }
+        .container2:after{display: block; content: ''; clear: both;}
+        .float-box2 { float: left; width: 220px; height: 100px; background: #09a; color: #fff; }
+    </style>
+    
+
+    
+    
+</body>
+</html>

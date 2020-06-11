@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lazyload演示</title>
+    <link rel="stylesheet" href="/static/common.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@16.1.0/dist/lazyload.min.js"></script>
+</head>
+<body class="page">
+    <h1>lazyload本地演示</h1>
+
+    <h2>图片懒加载</h2>
+    <style>
+        .img-list{list-style: none; height: 200px; overflow-y: auto; border: 1px dotted #f00;}
+        .img-list li{margin-bottom: 10px; width: 1000px; height: 640px;}
+        .img-list img{width: 100%; }
+    </style>
+    <ul class="img-list">
+        <li><img data-src="http://h1.ioliu.cn/bing/MarleyBeach_ZH-CN0404372814_1920x1080.jpg?imageslim"></li>
+        <li><img data-src="http://h1.ioliu.cn/bing/ReichenbachFalls_ZH-CN7578535270_1920x1080.jpg?imageslim"></li>
+        <li><img data-src="http://h1.ioliu.cn/bing/BaliRiceHarvest_ZH-CN9267319542_1920x1080.jpg?imageslim"></li>
+        <li><img data-src="http://h1.ioliu.cn/bing/SalisburyCathedral_ZH-CN6366350896_1920x1080.jpg?imageslim"></li>
+        <li><img data-src="http://h1.ioliu.cn/bing/RubySunset_ZH-CN5544596519_1920x1080.jpg?imageslim"></li>
+        <li><img data-src="http://h1.ioliu.cn/bing/NeistPoint_ZH-CN3115403132_1920x1080.jpg?imageslim"></li>
+    </ul>
+    <script>
+        new LazyLoad({
+            container: document.querySelector('.img-list'),
+        });
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <h2>背景图懒加载</h2>
+    <style>
+        .li-list{height: 200px; overflow-y: auto; border: 1px dotted #f00;}
+        .li-list{list-style: none; }
+        .li-list li{margin-bottom: 30px;  width: 1000px; height: 640px; background-repeat: no-repeat;}
+    </style>
+    <ul class="li-list">
+        <li data-bg="http://h1.ioliu.cn/bing/MarleyBeach_ZH-CN0404372814_1920x1080.jpg?imageslim"></li>
+        <li data-bg="http://h1.ioliu.cn/bing/ReichenbachFalls_ZH-CN7578535270_1920x1080.jpg?imageslim"></li>
+        <li data-bg="http://h1.ioliu.cn/bing/BaliRiceHarvest_ZH-CN9267319542_1920x1080.jpg?imageslim"></li>
+        <li data-bg="http://h1.ioliu.cn/bing/SalisburyCathedral_ZH-CN6366350896_1920x1080.jpg?imageslim"></li>
+        <li data-bg="http://h1.ioliu.cn/bing/RubySunset_ZH-CN5544596519_1920x1080.jpg?imageslim"></li>
+        <li data-bg="http://h1.ioliu.cn/bing/NeistPoint_ZH-CN3115403132_1920x1080.jpg?imageslim"></li>
+    </ul>
+    <script>
+        new LazyLoad({
+            container: document.querySelector('.li-list'),
+            elements_selector: '.li-list li'
+        });
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <h2>iframe懒加载</h2>
+    <style>
+        .ifr-list { height: 400px; overflow-y: auto; border: 1px dotted #f00;}
+        .ifr-list { list-style: none;}
+        .ifr-list li { margin-bottom: 30px; width: 1000px; height: 600px; background-repeat: no-repeat;}
+    </style>
+    <ul class="ifr-list">
+        <li style="background-color: #f74e1e;"></li>
+        <li style="background-color: #7fba00;"></li>
+        <li style="background-color: #00a4ef;"></li>
+        <li><iframe data-src="https://baidu.com" width="1000" height="500" frameborder="1"></iframe></li>
+        <li style="background-color: #ffb900;"></li>
+    </ul>
+    <script>
+        new LazyLoad({
+            container: document.querySelector('.ifr-list'),
+            elements_selector: '.ifr-list iframe'
+        });
+    </script>
+</body>
+</html>

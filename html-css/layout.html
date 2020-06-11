@@ -4,8 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>常用布局</title>
+    <link rel="stylesheet" href="../static/common.css">
+    <link rel="stylesheet" href="../static/prism.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="../static/prism.js"></script>
 </head>
 <body>
-    左右布局
+    <div class="page" id="app">
+        <h1 style="padding: 20px;">常用布局</h1>
+
+        <div class="panel" v-for="menu of menuData">
+            <h2 class="title" v-html="menu.title"></h2>
+            <ul class="list" v-if="menu.list">
+                <li v-for="item in menu.list">
+                    <a :href="item.link" v-html="item.name"></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                menuData: [
+                    {
+                        title: '整体版式',
+                        list: [
+                            {
+                                name: '左固定右自适应',
+                                link: '/html-css/layout/frame-1.html'
+                            },
+                            {
+                                name: '顶固定',
+                                link: '/html-css/layout/frame-2.html'
+                            },
+
+                        ]
+                    },
+                    {
+                        title: '橱窗卡片',
+                        list: [
+                            {
+                                name: '单个商品橱窗',
+                                link: '/html-css/layout/card-1.html'
+                            },
+                            {
+                                name: '卡片排列',
+                                link: '/html-css/layout/card-2.html'
+                            },
+                        ]
+                    },
+                ]
+            },
+        });
+    </script>
+
+    
 </body>
 </html>

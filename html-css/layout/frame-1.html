@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用布局</title>
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/prism.css">
+    <script src="/static/prism.js"></script>
+</head>
+
+<body class="page">
+    <h1>左固定右自适应</h1>
+
+    <h2>HTML</h2>
+    <pre class="language-html">
+        <code type="text/plain" class="language-markup">
+            <script>
+                <div class="container">
+                    <div class="aside-fixed">左侧固定区域</div>
+                    <div class="content-area">右侧内容较多高度可自适应</div>
+                </div>
+            </script>
+        </code>
+    </pre>
+    <br>
+    <br>
+
+    <h2>CSS</h2>
+    <pre>
+        <code class="language-css">
+            .container{}
+            .aside-fixed{ position: fixed; }
+        </code>
+    </pre>
+
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+            'break-lines': 80,
+            'indent': 1,
+            'remove-initial-line-feed': false,
+            'tabs-to-spaces': 2,
+            'spaces-to-tabs': 4
+        });
+    </script>
+</body>
+
+</html>

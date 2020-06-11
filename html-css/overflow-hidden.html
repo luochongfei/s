@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字超出隐藏</title>
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/prism.css">
+    <script src="/static/prism.js"></script>
+</head>
+<body class="page">
+    <h1>文字超出隐藏</h1>
+
+    <hr>
+
+    <h2>超出一行隐藏</h2>
+    
+    <h3>CSS</h3>
+    <pre>
+        <code class="language-css">
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        </code>
+    </pre>
+
+    <h3>演示</h3>
+    <div class="box1" title="这里有很多内容，超出一行就点点点隐藏">这里有很多内容，超出一行就点点点隐藏</div>
+    <style>
+        .box1{width: 260px; background-color: #09a; color: #fff;}
+        .box1{white-space: nowrap;  overflow: hidden; text-overflow: ellipsis;}
+    </style>
+
+    <br><br>
+    <br><br>
+    <hr>
+
+
+    <h2>超出多行隐藏</h2>
+
+    <h3>CSS</h3>
+    <pre>
+        <code class="language-css">
+            display: -webkit-box !important;
+            line-height: 20px;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            text-overflow: ellipsis;
+            white-space: initial;
+        </code>
+    </pre>
+
+    <h3>演示</h3>
+    <div class="box2" title="这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。">这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3 行就点点点隐藏。这里有很多内容，超出 3
+    行就点点点隐藏。</div>
+    <style>
+        .box2{width: 260px; background-color: #f90; color: #fff;}
+
+        /* 核心样式 */
+        .box2{
+            display: -webkit-box !important;
+            height: 60px; /* 必须设置高度*/
+            line-height: 20px; /*必须设置行高*/
+            -webkit-line-clamp: 3; /*超出 3 行才隐藏*/
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: initial;
+        } 
+    </style>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+</html>

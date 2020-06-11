@@ -3,9 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>图片懒加载 lazyload.js</title>
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/prism.css">
+    <script src="/static/prism.js"></script>
 </head>
-<body>
-    https://github.com/tuupola/lazyload
+<body class="page">
+    <h1><a href="/">前端集</a> &gt; 图片懒加载 lazyload.js</h1>
+    <p>
+        作用：提高页面加载速度<br>
+        仅让页面可视范围内的图片加载，随着用户滚动页面，将继续加载图片
+    </p>
+
+    <hr>
+    <h2>资料</h2>
+    <ul style="list-style: none; line-height: 30px;">
+        <li><a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></li>
+        <li><a href="https://www.andreaverlicchi.eu/vanilla-lazyload/" target="_blank">官网</a></li>
+        <li><a href="/js/demo/lazyload.html">演示</a></li>
+        <li>CDN资源：<a href="https://cdn.jsdelivr.net/npm/vanilla-lazyload@16.1.0/dist/lazyload.min.js" target="_blank">https://cdn.jsdelivr.net/npm/vanilla-lazyload@16.1.0/dist/lazyload.min.js</a></li>
+        <li>NPM安装：<code class="language-bash">npm install vanilla-lazyload</code></li>
+        <li>ES导入：<code class="language-javascript">import LazyLoad from "vanilla-lazyload";</code></li>
+    </ul>
+
+    <br>
+
+    <h2>使用</h2>
+    <h4>HTML</h4>
+    <pre class="language-html">
+        <code type="text/plain" class="language-markup">
+            <script>
+                <!-- img图片标签 -->
+                <img src="未加载时默认小图.png" data-src="要加载的大图.png" class="js-lazyload" />
+
+
+                <!-- 普通标签，加载成功后将为标签设置background-image -->
+                <div data-bg="要加载的大图.png" class="js-lazyload"></div>
+
+
+                <!-- iframe标签 -->
+                <iframe data-src="newIframe.html" class="js-lazyload"></iframe>
+            </script>
+        </code>
+    </pre>
+
+    <h4>JS</h4>
+    <pre>
+        <code class="language-javascript">
+            new LazyLoad({
+                elements_selector: '.js-lazyload'
+            });
+        </code>
+    </pre>
+
+
+    <h2>参数</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>可选值</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>container</td>
+                <td>要进行懒加载范围的容器</td>
+                <td>Element</td>
+                <td>如：document.querySelector('.container')</td>
+                <td>document</td>
+            </tr>
+            <tr>
+                <td>elements_selector</td>
+                <td>要进行懒加载元素的 css 选择器</td>
+                <td>String</td>
+                <td>如：'.js-lazyload'</td>
+                <td>'IMG'</td>
+            </tr>
+            <tr>
+                <td>data_src</td>
+                <td>元素中实际要加载资源属性名称，不需要加data-</td>
+                <td>String</td>
+                <td>如：'lazy'  则在实际 html 中要写data-lazy</td>
+                <td>'src'</td>
+            </tr>
+            <tr>
+                <td>threshold</td>
+                <td>距元素多少像素外开始懒加载真实资源</td>
+                <td>String:px</td>
+                <td>如：0</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>class_loaded</td>
+                <td>元素加载完成要添加的类名</td>
+                <td>String</td>
+                <td>如：'lazy-loaded'</td>
+                <td>'loaded'</td>
+            </tr>
+            <tr>
+                <td>class_error</td>
+                <td>元素加载出错要添加的类名</td>
+                <td>String</td>
+                <td>如：'lazy-error'</td>
+                <td>'error'</td>
+            </tr>
+            <tr>
+                <td>callback_loaded</td>
+                <td>元素加载完成回调函数</td>
+                <td>Function</td>
+                <td>如：function(el){ console.log(el+'加载完成了！') }</td>
+                <td>null</td>
+            </tr>
+            <tr>
+                <td>callback_error</td>
+                <td>元素加载出错回调函数</td>
+                <td>Function</td>
+                <td>如：function(el){ console.log(el+'加载失败了！') }</td>
+                <td>null</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
 </body>
 </html>
